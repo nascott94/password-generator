@@ -4,8 +4,12 @@ var generateBtn = document.querySelector("#generate");
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var special = "!@#$%^&*()";
-var numberChar = "123456789";
+var number = "123456789";
 var chosenOne = "";
+var passUpper = "";
+var passLower = "";
+var passSpecial = "";
+var passNumber = "";
 
 //Event listener to generate button
 document.querySelector("#generate").addEventListener("click", passFun);
@@ -42,8 +46,8 @@ document.querySelector("#generate").addEventListener("click", numberFun);
 function numberFun() {
   var passNumber = confirm("Would you like to inlude numbers?");
 }
-
 function generatePassword() {
+  var passFinal = "";
   if (passUpper) {
     chosenOne += upperCase;
   }
@@ -51,13 +55,18 @@ function generatePassword() {
     chosenOne += lowerCase;
   }
   if (passSpecial) {
-    chosenOne += passSpecial;
+    chosenOne += special;
   }
   if (passNumber) {
-    chosenOne += passNumber;
+    chosenOne += number;
   }
-
-  for(var )
+  why use a for loop?
+  for (var i = 0; i < length; i++) {
+    passFinal += chosenOne.charAt(
+      Math.floor(Math.random() * chosenOne.passLength)
+    );
+  }
+  return passFinal;
 }
 
 // Write password to the #password input
@@ -67,7 +76,6 @@ function writePassword() {
 
   passwordText.value = password;
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
@@ -83,7 +91,5 @@ generateBtn.addEventListener("click", writePassword);
 //Finally write the password in the #password
 //Add event listener at end
 
-// var upperPrompt = confirm("Would you like to include uppercase characters?");
-// var lowerPrompt = confirm("Would you like to include lowercase characters?");
-// var specialPrompt = confirm("Would you like to include special characters?");
-// var numberPrompt = confirm("Would you like to include numbers?");
+
+
