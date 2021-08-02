@@ -10,11 +10,12 @@ var passUpper = "";
 var passLower = "";
 var passSpecial = "";
 var passNumber = "";
+// var passFinal = "";
 
 //Event listener to generate button
 document.querySelector("#generate").addEventListener("click", passFun);
 
-//The below code determines the length of the random password, requiring a value between 8-128 characters
+//The below function determines the length of the random password, requiring a value between 8-128 characters
 function passFun() {
   var passLength = prompt("Please choose between 8-128 characters.");
 
@@ -26,28 +27,23 @@ function passFun() {
   }
   return passFun;
 }
+//Additon of event listener to generate further prompts
+document.querySelector("#generate").addEventListener("click", charaFun);
 
-document.querySelector("#generate").addEventListener("click", upperFun);
-function upperFun() {
-  var passUpper = confirm("Would you like to inlude uppercase characters?");
+//Function that prompts user to choose the types of characters they would like
+function charaFun() {
+  var passUpper = confirm("Would you like to include uppercase characters?");
+
+  var passLower = confirm("Would you like to include lowercase characters?");
+
+  var passSpecial = confirm("Would you like to include special characters?");
+
+  var passNumber = confirm("Would you like to include numbers?");
 }
 
-document.querySelector("#generate").addEventListener("click", lowerFun);
-function lowerFun() {
-  var passLower = confirm("Would you like to inlude lowercase characters?");
-}
-
-document.querySelector("#generate").addEventListener("click", specialFun);
-function specialFun() {
-  var passSpecial = confirm("Would you like to inlude special characters?");
-}
-
-document.querySelector("#generate").addEventListener("click", numberFun);
-function numberFun() {
-  var passNumber = confirm("Would you like to inlude numbers?");
-}
+//Function that generates the random password
 function generatePassword() {
-  var passFinal = "";
+  // var passFinal = "";
   if (passUpper) {
     chosenOne += upperCase;
   }
@@ -60,13 +56,13 @@ function generatePassword() {
   if (passNumber) {
     chosenOne += number;
   }
-  why use a for loop?
+  // why use a for loop?
   for (var i = 0; i < length; i++) {
     passFinal += chosenOne.charAt(
       Math.floor(Math.random() * chosenOne.passLength)
     );
   }
-  return passFinal;
+  return console.log(chosenOne);
 }
 
 // Write password to the #password input
@@ -91,5 +87,22 @@ generateBtn.addEventListener("click", writePassword);
 //Finally write the password in the #password
 //Add event listener at end
 
+// document.querySelector("#generate").addEventListener("click", upperFun);
+// function upperFun() {
+//   var passUpper = confirm("Would you like to include uppercase characters?");
+// }
 
+// document.querySelector("#generate").addEventListener("click", lowerFun);
+// function lowerFun() {
+//   var passLower = confirm("Would you like to include lowercase characters?");
+// }
 
+// document.querySelector("#generate").addEventListener("click", specialFun);
+// function specialFun() {
+//   var passSpecial = confirm("Would you like to include special characters?");
+// }
+
+// document.querySelector("#generate").addEventListener("click", numberFun);
+// function numberFun() {
+//   var passNumber = confirm("Would you like to include numbers?");
+// }
