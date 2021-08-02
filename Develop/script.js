@@ -1,4 +1,5 @@
 // Assignment Code
+
 //Variable Declarations
 var generateBtn = document.querySelector("#generate");
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -43,7 +44,6 @@ function charaFun() {
 
 //Function that generates the random password
 function generatePassword() {
-  // var passFinal = "";
   if (passUpper) {
     chosenOne += upperCase;
   }
@@ -74,35 +74,3 @@ function writePassword() {
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-//TO DO:
-//When push generate button, then prompt box appears
-//prompt box that asks how many characters you want, then propmt box that asks upper case, then prompt box that asks special characters, then numbers
-//password is then generated
-
-//Define all the var needed
-//Need to determine how long the password will be..do this through a function
-//Does user want to include uppercase letters, numbers, special characters
-//Function that combines all the above
-//Finally write the password in the #password
-//Add event listener at end
-
-// document.querySelector("#generate").addEventListener("click", upperFun);
-// function upperFun() {
-//   var passUpper = confirm("Would you like to include uppercase characters?");
-// }
-
-// document.querySelector("#generate").addEventListener("click", lowerFun);
-// function lowerFun() {
-//   var passLower = confirm("Would you like to include lowercase characters?");
-// }
-
-// document.querySelector("#generate").addEventListener("click", specialFun);
-// function specialFun() {
-//   var passSpecial = confirm("Would you like to include special characters?");
-// }
-
-// document.querySelector("#generate").addEventListener("click", numberFun);
-// function numberFun() {
-//   var passNumber = confirm("Would you like to include numbers?");
-// }
