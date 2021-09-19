@@ -30,7 +30,7 @@ function passGen() {
   var wantsUpperCase = confirm("Would you like to include uppercase letters?");
   var wantsLowerCase = confirm("Would you like to include lowercase letters?");
   var wantsNumbers = confirm("Would you like to include numbers?");
-  var wantsSpecial = confirm("Would you like to include special charicters?");
+  var wantsSpecial = confirm("Would you like to include special characters?");
 
   if (wantsUpperCase) {
     userChoice += upperCase;
