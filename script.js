@@ -1,75 +1,55 @@
-// Assignment Code
-
 //Variable Declarations
 var generateBtn = document.querySelector("#generate");
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var special = "!@#$%^&*()";
 var number = "123456789";
-var chosenOne;
-var passUpper;
-var passLower;
-var passSpecial;
-var passNumber;
-var passLength;
-var passFinal = "";
+var userChoice = "";
 
-//Event listener to generate button
-document.querySelector("#generate").addEventListener("click", passFun);
-
-//The below function determines the length of the random password, requiring a value between 8-128 characters
-function passFun() {
-  passLength = prompt("Please choose between 8-128 characters.");
-
-  if (passLength >= 8 && passLength <= 128) {
-    alert("Please continue to the next page to choose character type");
-  } else {
-    alert("Please choose characher length between 8-128.");
-    passFun();
-  }
-}
-//Additon of event listener to generate further prompts
-document.querySelector("#generate").addEventListener("click", charaFun);
-
-//Function that prompts user to choose the types of characters they would like
-function charaFun() {
-  passUpper = confirm("Would you like to include uppercase characters?");
-  // passUpper ? (chosenOne += upperCase) : null;
-  passLower = confirm("Would you like to include lowercase characters?");
-
-  passSpecial = confirm("Would you like to include special characters?");
-
-  passNumber = confirm("Would you like to include numbers?");
-}
-
-//Function that generates the random password
-function generatePassword() {
-  if (passUpper) {
-    chosenOne += upperCase;
-  }
-  if (passLower) {
-    chosenOne += lowerCase;
-  }
-  if (passSpecial) {
-    chosenOne += special;
-  }
-  if (passNumber) {
-    chosenOne += number;
-  } else {
-  }
-  console.log(chosenOne);
-  for (var i = 0; i < passLength; i++) {
-    passFinal += chosenOne.charAt(Math.ceil(Math.random() * chosenOne.length));
-  }
-  return passFinal;
-}
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
+function thePassword() {
+  var password = passGen();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+
+generateBtn.addEventListener("click", thePassword);
+
+function passGen() {
+  var result = "";
+  var length = prompt("Please pick a character number between 8 and 128");
+  if (isNaN(length)) {
+    alert("You must pick a character length between 8 and 128!");
+    return passGen();
+  }
+
+  if (length < 8 || length > 128) {
+    alert("You must pick a character length between 8 and 128!");
+    return passGen();
+  }
+
+  var wantsUpperCase = confirm("Would you like to include uppercase letters?");
+  var wantsLowerCase = confirm("Would you like to include lowercase letters?");
+  var wantsNumbers = confirm("Would you like to include numbers?");
+  var wantsSpecial = confirm("Would you like to include special charicters?");
+
+  if (wantsUpperCase) {
+    userChoice += upperCase;
+  }
+
+  if (wantsLowerCase) {
+    userChoice += lowerCase;
+  }
+
+  if (wantsNumbers) {
+    userChoice += number;
+  }
+
+  if (wantsSpecial) {
+    userChoice += special;
+  }
+
+  for (var i = 0; i < length; i++) {
+    result += userChoice.charAt(Math.floor(Math.random() * userChoice.length));
+  }
+  return result;
+}
