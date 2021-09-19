@@ -12,4 +12,4 @@ This web application will allow employees to generate a random password that mee
 
 ## Finished Application
 
-![The Password Generator application displays a red button to "Generate Password".](./Assets/03-javascript-homework-demo.png)
+https://nascott94.github.io/password-generator/
